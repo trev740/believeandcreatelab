@@ -66,28 +66,6 @@
       flex-direction: column;
     }
 
-    .contact {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: fit-content;
-      min-height: 46px;
-      margin: 28px auto 0;
-      padding: 0 18px;
-      color: #07101c;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 850;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--cyan), var(--yellow));
-      box-shadow: 0 16px 32px rgba(72, 225, 255, 0.18);
-      transition: 0.2s ease;
-    }
-
-    .contact:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 38px rgba(72, 225, 255, 0.24);
-    }
 
     main {
       flex: 1;
@@ -208,6 +186,71 @@
       color: rgba(255, 255, 255, 0.78);
       font-size: 14px;
       font-weight: 700;
+    }
+
+    .released-game {
+      max-width: 520px;
+      margin: 34px auto 0;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.045);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .game-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      object-fit: cover;
+      flex: 0 0 auto;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.26);
+    }
+
+    .released-game h2 {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.46);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .released-game h3 {
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      margin-bottom: 8px;
+    }
+
+    .released-game p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .store-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .store-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 750;
     }
 
     .mini-game {
@@ -338,7 +381,7 @@
 
       .eyebrow,
       p,
-      .contact,
+      .released-game,
       .mini-game {
         margin-left: 0;
         margin-right: 0;
@@ -346,6 +389,10 @@
 
       .tags {
         justify-content: flex-start;
+      }
+
+      .released-game {
+        align-items: flex-start;
       }
 
       .game-top {
@@ -374,12 +421,31 @@
           to pick up, visually appealing, and designed with care.
         </p>
 
-        <a class="contact" href="mailto:believencreatelab@gmail.com">Contact Us</a>
-
         <div class="tags" aria-label="Studio focus">
           <span class="tag">Mobile Games</span>
           <span class="tag">Creative Apps</span>
         </div>
+
+        <section class="released-game" aria-label="Released game">
+          <img
+            class="game-logo"
+            id="gameLogo"
+            src="https://raw.githubusercontent.com/trev740/believeandcreatelab/refs/heads/main/Store_Logo.png"
+            data-fallback="https://raw.githubusercontent.com/trev740/believeandcreatelab/refs/heads/main/Store_Logo.png"
+            alt="Seagull Chaos app icon"
+          />
+
+          <div>
+            <h2>Released Game</h2>
+            <h3>Seagull Chaos</h3>
+            <p>Available now on iOS and Android.</p>
+
+            <div class="store-pills" aria-label="Available platforms">
+              <a class="store-pill" href="https://apps.apple.com/gb/app/seagull-chaos/id6759095757" target="_blank" rel="noopener noreferrer">App Store</a>
+              <a class="store-pill" href="https://play.google.com/store/apps/details?id=com.believencreatelab.seagullchaos" target="_blank" rel="noopener noreferrer">Google Play</a>
+            </div>
+          </div>
+        </section>
 
         <div class="mini-game" id="miniGame" aria-label="Tap the Spark mini game" aria-hidden="true">
           <div class="game-top">
@@ -405,6 +471,8 @@
   </div>
 
   <script>
+    const appStoreLookupUrl = "https://itunes.apple.com/lookup?id=6759095757&country=gb";
+    const gameLogo = document.getElementById("gameLogo");
     const createWord = document.getElementById("createWord");
     const miniGame = document.getElementById("miniGame");
     const startButton = document.getElementById("startGame");
@@ -413,6 +481,22 @@
     const scoreText = document.getElementById("score");
     const timeText = document.getElementById("time");
     const message = document.getElementById("gameMessage");
+
+    async function loadAppStoreArtwork() {
+      try {
+        const response = await fetch(appStoreLookupUrl);
+        const data = await response.json();
+        const app = data.results && data.results[0];
+
+        if (app && app.artworkUrl512) {
+          gameLogo.src = app.artworkUrl512;
+        }
+      } catch (error) {
+        gameLogo.src = gameLogo.dataset.fallback;
+      }
+    }
+
+    loadAppStoreArtwork();
 
     let createClicks = 0;
     let gameUnlocked = false;
