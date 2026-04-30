@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <title>YouTube Player</title>
+
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=LCdrAcqYs4syWISnJBVbqaf9s3cLetl_nfU_u-zmKHhxJKteQj9lHS3ytwLhcf3IbGMAe5r_skbOSb-j9uvt5197MDr0jtOhMgWf7G7IGTnE5JdIQVgm9OSoTJ_CQ8BjT4SkNHM9X3wNFY3EjjvCAxWltWjMkavoo2eqdc-JomwP1Bme4l76xgmpIIP4rnlU9gKyf8n5dkFZ3i-p3XvAofj9ASAKsYUH0de0b1FuJBhmO3AhpmztKD1i0LBCdLJ17vLkTYR2VZhvw69SP_s52A" charset="UTF-8"></script><style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+
+        #player {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="player"></div>
+
+    <script>
+        function getVideoID() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get("v") || "ZihgmNuSrZ8";
+        }
+
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+
+        const firstScriptTag = document.getElementsByTagName("script")[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        let player;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player("player", {
+                width: "100%",
+                height: "100%",
+                videoId: getVideoID(),
+                playerVars: {
+                    playsinline: 1,
+                    rel: 0,
+                    controls: 1,
+                    fs: 1,
+                    iv_load_policy: 3
+                },
+                events: {
+                    onReady: function () {
+                        console.log("YouTube player ready");
+                    },
+                    onError: function (event) {
+                        console.log("YouTube player error:", event.data);
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
