@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediaRelay Support</title>
+  <meta name="description" content="Get help using MediaRelay, transfer files over local Wi-Fi, open the transfer link or QR code, fix connection issues, restore purchases, and contact support." />
+  <meta name="keywords" content="MediaRelay support, WiFi file transfer, local file sharing, QR transfer, browser transfer, local network, file sharing help" />
+
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=tIxDr-PPLYIwLz2trfaDWNxsMRzzbFUoispVxwjCPXqBrcoU9fWY41GVx5BpbvX0TW217swqpSsUWEHC3yKnJIi8BGBn9ie6QeB2QcMIcrXYfrTkcbKCoNBV_hFfrfA2vXhdarOSisSZF67t9CgNfjSEf4xEGHS1F7O8ygOssYHOYo0WvT2cSnlJoEj4yGMXFLBDYOtGqN7_ZuwhS-6OAxxfJYml4FETbIhBV7hHnp879RJ_VD39zB6LKgR5kMEVogPg5Bx64rcnTa2xKvc4EwkcNhsdg8TxtDlvrGF3zyb8z8LtUtzLzmLNuzg8s4OydwqZ8z_PezC6T2MEEo9stw" charset="UTF-8"></script><style>
+    :root {
+      --bg: #020617;
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, 0.68);
+      --line: rgba(255, 255, 255, 0.13);
+      --cyan: #5ee7ff;
+      --blue: #5b7cff;
+      --violet: #8b5cf6;
+      --shadow: rgba(0, 0, 0, 0.38);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 14% 12%, rgba(91, 124, 255, 0.22), transparent 28%),
+        radial-gradient(circle at 86% 14%, rgba(94, 231, 255, 0.15), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(139, 92, 246, 0.14), transparent 34%),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.032) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(920px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 54px 0 34px;
+    }
+
+    .hero {
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+      margin-bottom: 18px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.7;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.045));
+      box-shadow: 0 32px 90px var(--shadow);
+      backdrop-filter: blur(24px);
+      overflow: hidden;
+    }
+
+    .section {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-child {
+      border-bottom: 0;
+    }
+
+    h2 {
+      font-size: 22px;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.72;
+      margin-bottom: 12px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul,
+    ol {
+      display: grid;
+      gap: 9px;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.62;
+    }
+
+    strong {
+      color: rgba(255,255,255,0.92);
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 7px;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.82);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.13);
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.92);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 850;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.095);
+      border-color: rgba(255,255,255,0.20);
+      text-decoration: none;
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #04101d;
+      border-color: transparent;
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(94, 231, 255, 0.16);
+      background: rgba(94, 231, 255, 0.06);
+      color: rgba(255,255,255,0.66);
+      font-size: 14px;
+      line-height: 1.62;
+    }
+
+    footer {
+      margin-top: 26px;
+      color: rgba(255,255,255,0.38);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 24px, 920px);
+        padding: 34px 0 24px;
+      }
+
+      .card {
+        border-radius: 24px;
+      }
+
+      .section {
+        padding: 20px 18px;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="eyebrow">Support</div>
+      <h1>MediaRelay <span class="gradient-text">Support</span></h1>
+      <p class="intro">
+        Need help transferring files over local Wi-Fi? This page covers basic setup, common connection fixes, Pro features, and how to contact support.
+      </p>
+    </header>
+
+    <main class="card">
+      <section class="section">
+        <h2>Getting Started</h2>
+        <p>
+          MediaRelay lets you transfer selected photos, videos, audio, and documents between your device and another device on the same Wi-Fi network.
+          Select files in the app, tap <strong>Share</strong>, then open the local transfer link or scan the QR code from another device.
+        </p>
+        <p>
+          No account is required. No cloud upload is required. Transfers happen directly over your local network.
+        </p>
+
+        <div class="button-row">
+          <a class="button primary" href="mailto:believencreatelab@gmail.com">Email Support</a>
+          <a class="button" href="https://www.believeandcreatelab.co.uk/mediarelay/privacy">Privacy Policy</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Basic Setup</h2>
+        <ol>
+          <li>Connect your device and the other device to the same Wi-Fi network.</li>
+          <li>Open MediaRelay.</li>
+          <li>Select photos, videos, audio, or documents.</li>
+          <li>Tap <strong>Share</strong> to open your transfer link and QR code.</li>
+          <li>On the other device, open the displayed local address in a browser or scan the QR code.</li>
+          <li>Download the selected files from the browser page.</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2>Receiving Files</h2>
+        <p>
+          MediaRelay Pro can receive files from another device through the local browser page.
+        </p>
+        <ol>
+          <li>Open MediaRelay.</li>
+          <li>Tap the Settings icon.</li>
+          <li>Enable <strong>Allow Uploads</strong>.</li>
+          <li>Tap <strong>Share</strong>.</li>
+          <li>Open the transfer link in a browser on the other device.</li>
+          <li>Use the upload area on the browser page to send files back to your device.</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2>If the Transfer Link Does Not Open</h2>
+        <ul>
+          <li>Make sure both devices are connected to the same Wi-Fi network.</li>
+          <li>Make sure MediaRelay is open while transferring.</li>
+          <li>Do not use mobile data only; the browser device must be on the same local network.</li>
+          <li>Avoid guest Wi-Fi networks, VPNs, or networks that block local device access.</li>
+          <li>Check that Local Network permission is allowed for MediaRelay in system settings.</li>
+          <li>Try closing and reopening the app, then tap <strong>Share</strong> again.</li>
+          <li>If your router has client isolation enabled, local device-to-device transfer may be blocked.</li>
+        </ul>
+
+        <p class="note">
+          Some browsers may show “Not Secure” for the local address. This is expected because MediaRelay uses a local HTTP address on your private Wi-Fi network.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Supported Files</h2>
+        <p>
+          MediaRelay supports photos, videos, audio files, and documents that can be selected from the app or imported from the system file picker.
+        </p>
+        <ul>
+          <li>Photos and videos can be selected from the photo picker.</li>
+          <li>Audio and documents can be selected from the file picker.</li>
+          <li>HEIC to JPEG conversion can be enabled in Settings for better compatibility.</li>
+          <li>Very large transfers may require Pro depending on the current app limits.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Passcode Protection</h2>
+        <p>
+          You can enable optional passcode protection for the local browser page.
+        </p>
+        <ol>
+          <li>Open Settings in MediaRelay.</li>
+          <li>Enable <strong>Protect with Passcode</strong>.</li>
+          <li>Set a 4-digit passcode.</li>
+          <li>Share the passcode only with people you want to access the local transfer page.</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2>Subscriptions and Restore Purchases</h2>
+        <p>
+          MediaRelay Pro unlocks Pro features such as unlimited transfers, receiving files from other devices, larger transfers, and advanced receive options.
+          Purchases are handled through Apple’s in-app purchase system.
+        </p>
+        <p>
+          If you already purchased Pro, open Settings in the app and tap <strong>Restore Purchases</strong>.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Privacy</h2>
+        <p>
+          MediaRelay is designed for local file transfer. Your selected files are not uploaded to Believe N Create Lab servers.
+          Transfers happen directly between your devices over your local Wi-Fi network.
+        </p>
+
+        <div class="button-row">
+          <a class="button" href="https://www.believeandcreatelab.co.uk/mediarelay/privacy">Read Privacy Policy</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Contact Support</h2>
+        <p>
+          If you still need help, contact Believe N Create Lab by email. Include your device model, operating system version, what you were trying to transfer, and what happened.
+        </p>
+
+        <div class="button-row">
+          <a class="button primary" href="mailto:believencreatelab@gmail.com">Email Support</a>
+          <a class="button" href="https://www.believeandcreatelab.co.uk/mediarelay/privacy">Privacy Policy</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>MediaRelay by Believe N Create Lab</footer>
+  </div>
+</body>
+</html>
