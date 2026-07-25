@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StreamLens OBS Plugin Download</title>
 
- <style>
+ <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=SBadSyEwEJCm_7g12ctv-xYyqeYVtrCsEf53-XJo0HbUHRJd63VdCuJgpJ6FAn-I6hCxxY0mwfQA47v28EIKplD8pGRTJK5wR9CQV9tnwRpxuF87slz2tbGfZsFJdOdqaUknFCh3QbEmYpxZ-gXAMiWukTVlkKw5Cj16Ruv-ZJR_CeAsa1va2_BK8-mkfDZBA9k-NdlCzde3uqaJImx3ijihJGcNwPxGpKnOf2qPC1PHYF76pSNfYcDThlYKxAVJ3yCtS8AvyIFQh3cpr5xYnw" charset="UTF-8"></script><style>
     :root {
       --bg: #070914;
       --text: #ffffff;
@@ -390,7 +390,7 @@
         <section class="download-card" id="downloads" aria-label="Download StreamLens OBS plugin">
           <div class="card-header">
             <h2>Download plugin</h2>
-            <p>Choose the version for your computer.</p>
+            <p>Choose the version for your computer and OBS Studio release.</p>
           </div>
 
           <div class="platforms">
@@ -403,14 +403,27 @@
               <div class="download-pill">Download</div>
             </a>
 
-            <a class="platform windows" href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLens_Win_OBS.zip" download>
+            <div class="platform windows">
               <div class="platform-marker" aria-hidden="true">Win</div>
               <div>
                 <h3>Windows</h3>
-                <p>Supports Windows 10/11.</p>
+                <p>Latest build for Windows 10/11 and OBS Studio 32.2.1.</p>
+                <p style="margin-top: 7px; font-size: 12px;">
+                  Using an older OBS version?
+                  <a href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLens_Win_OBS.zip"
+                     download
+                     style="color: var(--cyan); font-weight: 800; text-decoration: none;">
+                    Download the previous version
+                  </a>
+                </p>
               </div>
-              <div class="download-pill">Download</div>
-            </a>
+              <a class="download-pill"
+                 href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLens_OBS_32.2.1.zip"
+                 download
+                 style="text-decoration: none;">
+                Download
+              </a>
+            </div>
           </div>
 
         </section>
@@ -436,7 +449,7 @@
   <div class="install-column">
     <h3>Windows</h3>
     <ol>
-      <li>Download and unzip the Windows plugin ZIP.</li>
+      <li>Download the Windows plugin ZIP that matches your OBS Studio version. Do not install both versions.</li>
       <li>Close OBS Studio completely.</li>
       <li>Copy the included <code>data</code> and <code>obs-plugins</code> folders into your OBS Studio folder.</li>
       <li>Open OBS Studio and add <strong>StreamLens Device</strong> as a source.</li>
