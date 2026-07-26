@@ -723,9 +723,9 @@
                 <div class="version-links" aria-label="macOS plugin releases">
                   <div class="version-row">
                     <span>Latest Release:</span>
-                    <a href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLensOBSPlugin-0.1.0-arm64.pkg"
+                    <a href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLens_OBS_32.1_macOS_x64.zip"
                        download>
-                      OBS 32.1.x (.pkg)
+                      OBS 32.1.x (.plugin)
                     </a>
                   </div>
 
@@ -738,7 +738,7 @@
 
               <div class="download-actions">
                 <a class="download-pill"
-                   href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLensOBSPlugin-0.1.0-arm64.pkg"
+                   href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLens_OBS_32.1_macOS_x64.zip"
                    download>
                   Setup (.pkg)
                 </a>
@@ -768,11 +768,14 @@
   <div class="install-column">
     <h3>macOS</h3>
     <ol>
-      <li>Download the macOS <code>.pkg</code> installer.</li>
-      <li>Open the installer and follow the on-screen steps.</li>
-      <li>Open or restart OBS Studio.</li>
-      <li>Add <strong>StreamLens Device</strong> as a source in OBS.</li>
-      <li>Open StreamLens on your iPhone. The app should find OBS automatically when both devices are on the same Wi-Fi network.</li>
+    <li>Download the macOS <code>.zip</code> plugin package.</li>
+    <li>Unzip the downloaded file.</li>
+    <li>Open Finder, then choose <strong>Go → Go to Folder…</strong>.</li>
+    <li>Paste <code>~/Library/Application Support/obs-studio/plugins</code> and press Enter.</li>
+    <li>Copy <code>streamlens-obs.plugin</code> into the <code>plugins</code> folder.</li>
+    <li>Open or restart OBS Studio.</li>
+    <li>Add <strong>StreamLens Device</strong> as a source in OBS.</li>
+    <li>Open StreamLens on your iPhone. The app should find OBS automatically when both devices are on the same Wi-Fi network.</li>
     </ol>
   </div>
 </div>
