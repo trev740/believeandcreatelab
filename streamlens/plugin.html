@@ -67,8 +67,8 @@
 
     .hero {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: clamp(22px, 4vw, 42px);
+      grid-template-columns: 1fr 0.92fr;
+      gap: clamp(28px, 4vw, 52px);
       align-items: center;
     }
 
@@ -77,11 +77,11 @@
     }
 
     h1 {
-      max-width: 640px;
-      font-size: clamp(48px, 7vw, 86px);
-      line-height: 0.94;
-      letter-spacing: -0.075em;
-      margin-bottom: 22px;
+      max-width: 560px;
+      font-size: clamp(42px, 5.4vw, 68px);
+      line-height: 0.96;
+      letter-spacing: -0.065em;
+      margin-bottom: 18px;
     }
 
     .gradient-text {
@@ -92,10 +92,10 @@
     }
 
     .intro {
-      max-width: 600px;
+      max-width: 540px;
       color: var(--muted);
-      font-size: clamp(17px, 2vw, 20px);
-      line-height: 1.72;
+      font-size: clamp(15px, 1.45vw, 18px);
+      line-height: 1.62;
     }
 
     .download-card,
@@ -125,8 +125,7 @@
       font-size: 14px;
       line-height: 1.55;
     }
-
-    .platforms {
+.platforms {
       display: grid;
       gap: 0;
     }
@@ -192,7 +191,74 @@
       font-size: 13px;
       font-weight: 950;
       text-align: center;
+      text-decoration: none;
       box-shadow: 0 16px 36px rgba(73, 227, 255, 0.14);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.18s ease, filter 0.18s ease, background 0.18s ease;
+    }
+
+    .download-pill:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.06);
+    }
+
+    .download-pill.secondary {
+      background: rgba(255, 255, 255, 0.075);
+      color: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: none;
+    }
+
+    .download-actions {
+      width: 112px;
+      min-width: 112px;
+      display: grid;
+      gap: 10px;
+      justify-self: end;
+    }
+
+    .download-actions .download-pill {
+      width: 112px;
+      min-width: 112px;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .download-action-name {
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .version-links {
+      margin-top: 9px;
+      display: grid;
+      gap: 4px;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .version-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: baseline;
+    }
+
+    .version-current {
+      color: var(--cyan);
+      font-weight: 800;
+    }
+
+    .version-links a {
+      color: var(--cyan);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .version-links a:hover {
+      text-decoration: underline;
     }
 
 
@@ -329,8 +395,7 @@
       .install-card {
         border-radius: 26px;
       }
-
-      .card-header {
+.card-header {
         padding: 20px 18px 16px;
       }
 
@@ -339,8 +404,13 @@
         padding: 18px;
       }
 
-      .download-pill {
+      .download-actions,
+      .platform > .download-pill {
         grid-column: 1 / -1;
+        width: 100%;
+      }
+
+      .download-pill {
         width: 100%;
       }
 
@@ -371,6 +441,213 @@
         border-bottom: 1px solid var(--line);
       }
     }
+  
+    /* Revised hero/download layout */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 24px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .copy {
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      max-width: 940px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .brand-title,
+    .tagline-title {
+      display: block;
+    }
+
+    .brand-title {
+      margin-bottom: 8px;
+      font-size: clamp(25px, 2.4vw, 34px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .tagline-title {
+      font-size: clamp(42px, 5.6vw, 72px);
+      line-height: 0.96;
+      letter-spacing: -0.065em;
+    }
+
+    .download-card {
+      width: 100%;
+    }
+
+    .download-card .card-header {
+      padding: 20px 24px 16px;
+    }
+
+    .platforms {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .platform {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 22px;
+      align-items: center;
+      min-height: 190px;
+      padding: 24px 28px;
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 0;
+    }
+
+    .platform.windows {
+      border-right: 1px solid var(--line);
+    }
+
+    .platform-copy {
+      min-width: 0;
+    }
+
+    .compatibility-copy {
+      margin-top: 4px;
+      color: var(--subtle);
+      font-size: 12px;
+      line-height: 1.42;
+    }
+
+    .compatibility-copy strong {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .version-links {
+      margin-top: 9px;
+      display: grid;
+      gap: 4px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .version-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: baseline;
+    }
+
+    .version-row > span {
+      color: var(--subtle);
+    }
+
+    .release-unavailable {
+      color: rgba(255, 255, 255, 0.46) !important;
+      font-weight: 700;
+    }
+
+    .download-actions {
+      width: 112px;
+      min-width: 112px;
+      display: grid;
+      gap: 10px;
+      justify-self: end;
+    }
+
+    .download-actions .download-pill,
+    .platform.mac > .download-pill {
+      width: 112px;
+      min-width: 112px;
+    }
+
+    .install-card {
+      margin-top: 0;
+    }
+
+    @media (max-width: 880px) {
+      .platforms {
+        grid-template-columns: 1fr;
+      }
+
+      .platform.windows {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .platform {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 680px) {
+      h1 {
+        font-size: clamp(38px, 12vw, 58px);
+      }
+
+      .platform {
+        grid-template-columns: 1fr;
+      }
+
+      .download-actions {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .download-actions .download-pill {
+        width: 100%;
+        min-width: 0;
+      }
+    }
+
+  
+    /* Keep Download and Installation panels exactly the same width */
+    .download-card,
+    .install-card {
+      width: 100%;
+      max-width: none;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+  
+    /* Definitive full-width alignment fix */
+    main {
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .hero {
+      width: 100%;
+      min-width: 0;
+      justify-self: stretch;
+      align-self: stretch;
+    }
+
+    .copy,
+    .download-card,
+    .install-card {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .download-card,
+    .install-card {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
   </style>
 </head>
 
@@ -379,55 +656,94 @@
     <main>
       <section class="hero">
         <div class="copy">
-          <h1>Your Phone camera, <span class="gradient-text">inside OBS.</span></h1>
-
-          <p class="intro">
-            Download the StreamLens desktop plugin for Mac or Windows, add the StreamLens
-            Device source in OBS, and connect from your Phone over Wi-Fi.
-          </p>
+          <h1>
+            <span class="brand-title">StreamLens</span>
+            <span class="tagline-title">Your Phone camera, <span class="gradient-text">inside OBS.</span></span>
+          </h1>
         </div>
 
         <section class="download-card" id="downloads" aria-label="Download StreamLens OBS plugin">
           <div class="card-header">
             <h2>Download plugin</h2>
-            <p>Choose the version for your computer and OBS Studio release.</p>
           </div>
 
           <div class="platforms">
-            <a class="platform mac" href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLensOBSPlugin-0.1.0-arm64.pkg" download>
-              <div class="platform-marker" aria-hidden="true">Mac</div>
-              <div>
-                <h3>macOS</h3>
-                <p>Supports macOS Apple Silicon</p>
-              </div>
-              <div class="download-pill">Download</div>
-            </a>
-
             <div class="platform windows">
-              <div class="platform-marker" aria-hidden="true">Win</div>
-              <div>
+
+              <div class="platform-copy">
                 <h3>Windows</h3>
-                <p>Latest build OBS Studio 32.2</p>
-                <p style="margin-top: 8px; font-size: 12px; line-height: 1.45;">
-                  <span style="display: block; color: var(--subtle);">
-                    Using an older OBS version?
-                  </span>
-                  <a href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLens_OBS_32.1.zip"
-                     download
-                     style="display: block; margin-top: 8px; color: var(--cyan); font-weight: 800; text-decoration: none;">
-                    Download the previous version
-                  </a>
+                <p class="compatibility-copy">
+                  <strong>Important:</strong> Use the plugin matching your OBS version.<br>
+                  Check <strong>Help → About</strong>. Wrong versions will not load.
                 </p>
+
+                <div class="version-links" aria-label="Windows plugin ZIP releases">
+                  <div class="version-row">
+                    <span>Latest Available:</span>
+                    <a href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLens_OBS_32.2.zip"
+                       download>
+                      OBS 32.2.x (.zip)
+                    </a>
+                  </div>
+
+                  <div class="version-row">
+                    <span>Previous Release:</span>
+                    <a href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLens_OBS_32.1.zip"
+                       download>
+                      OBS 32.1.x (.zip)
+                    </a>
+                  </div>
+                </div>
               </div>
-              <a class="download-pill"
-                 href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLens_OBS_32.2.zip"
-                 download
-                 style="text-decoration: none;">
-                Download
-              </a>
+
+              <div class="download-actions">
+                <a class="download-pill"
+                   href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLens_OBS_32.exe"
+                   download>
+                  Setup (.exe)
+                </a>
+
+                <a class="download-pill"
+                   href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLens_OBS_32.2.zip"
+                   download>
+                  Archive (.zip)
+                </a>
+              </div>
+            </div>
+
+            <div class="platform mac">
+              <div class="platform-copy">
+                <h3>macOS</h3>
+                <p class="compatibility-copy">
+                  <strong>Important:</strong> Use the plugin matching your OBS version.<br>
+                  Check <strong>Help → About</strong>. Wrong versions will not load.
+                </p>
+
+                <div class="version-links" aria-label="macOS plugin releases">
+                  <div class="version-row">
+                    <span>Latest Available:</span>
+                    <a href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLensOBSPlugin-0.1.0-arm64.pkg"
+                       download>
+                      Apple Silicon (.pkg)
+                    </a>
+                  </div>
+
+                  <div class="version-row">
+                    <span>Previous Release:</span>
+                    <span class="release-unavailable">Not available yet</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="download-actions">
+                <a class="download-pill"
+                   href="https://github.com/trev740/believeandcreatelab/raw/refs/heads/main/streamlens/StreamLensOBSPlugin-0.1.0-arm64.pkg"
+                   download>
+                  Download (.pkg)
+                </a>
+              </div>
             </div>
           </div>
-
         </section>
       </section>
 
@@ -438,23 +754,23 @@
 
 <div class="install-grid">
   <div class="install-column">
-    <h3>macOS</h3>
-    <ol>
-      <li>Download the macOS <code>.pkg</code> installer.</li>
-      <li>Open the installer and follow the on-screen steps.</li>
-      <li>Open or restart OBS Studio.</li>
-      <li>Add <strong>StreamLens Device</strong> as a source in OBS.</li>
-      <li>Open StreamLens on your iPhone. The app should find OBS automatically when both devices are on the same Wi-Fi network.</li>
-    </ol>
-  </div>
-
-  <div class="install-column">
     <h3>Windows</h3>
     <ol>
       <li>Download the Windows plugin ZIP that matches your OBS Studio version. Do not install both versions.</li>
       <li>Close OBS Studio completely.</li>
       <li>Copy the included <code>data</code> and <code>obs-plugins</code> folders into your OBS Studio folder.</li>
       <li>Open OBS Studio and add <strong>StreamLens Device</strong> as a source.</li>
+      <li>Open StreamLens on your iPhone. The app should find OBS automatically when both devices are on the same Wi-Fi network.</li>
+    </ol>
+  </div>
+
+  <div class="install-column">
+    <h3>macOS</h3>
+    <ol>
+      <li>Download the macOS <code>.pkg</code> installer.</li>
+      <li>Open the installer and follow the on-screen steps.</li>
+      <li>Open or restart OBS Studio.</li>
+      <li>Add <strong>StreamLens Device</strong> as a source in OBS.</li>
       <li>Open StreamLens on your iPhone. The app should find OBS automatically when both devices are on the same Wi-Fi network.</li>
     </ol>
   </div>
