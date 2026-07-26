@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StreamLens OBS Plugin Download</title>
 
-<style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=qvHQY-vqYXTU-_pBDosbhUzJvCvFGqcbmkmcGAyM8Luzoldu-WqYlmUwQxQXz2XT2qfNSnZoUYsq6znaiztJ0vzWUmCsgF3plnfXFXuB4pNKLeaIS31NrjtsVjCxvE8dHJ9MbeiGj1pPomSjK_26m6slRCOBRzM6-aOEyaUsr_69AQhRBeUt7R3mB_i0vov4btI3PqpxxP4pUiYs1mMuRsAF2_EhSiqo4z02Z5evboFJhOjqav0biAo7xGEGpLaX8giy8jp4q1H6QoyOp64tBw" charset="UTF-8"></script><style>
     :root {
       --bg: #070914;
       --text: #ffffff;
@@ -106,7 +106,7 @@
       box-shadow: 0 32px 90px var(--shadow);
       backdrop-filter: blur(24px);
       overflow: hidden;
-      width: min(1040px, 100%);
+      width: min(980px, 100%);
       margin: 0 auto;
     }
 
@@ -481,11 +481,23 @@
     }
 
     .combined-card {
-      width: min(1040px, 100%);
+      width: min(980px, 100%);
     }
 
     .download-section .card-header {
-      padding: 16px 24px 13px;
+      padding: 16px 24px 15px;
+    }
+
+    .download-note {
+      max-width: 760px;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .download-note strong {
+      color: rgba(255, 255, 255, 0.9);
     }
 
     .platforms {
@@ -613,8 +625,8 @@
     }
 
     .combined-card {
-      width: min(1040px, 100%);
-      max-width: 1040px;
+      width: min(980px, 100%);
+      max-width: 980px;
       margin: 0 auto;
     }
 
@@ -649,18 +661,18 @@
       <section class="combined-card" aria-label="StreamLens plugin download and installation">
         <section class="download-section" id="downloads" aria-label="Download StreamLens OBS plugin">
           <div class="card-header">
-            <h2>Download plugin</h2>
+            <h2>Download</h2>
+            <p class="download-note">
+              <strong>Important:</strong> Use the plugin matching your OBS version.<br>
+              Check <strong>Help → About</strong>.<br>
+              Using an incompatible version may prevent the plugin from loading.
+            </p>
           </div>
 
           <div class="platforms">
             <div class="platform windows">
               <div class="platform-copy">
                 <h3>Windows</h3>
-                <p class="compatibility-copy">
-                  <strong>Important:</strong> Use the plugin matching your OBS version.<br>
-                  Check <strong>Help → About</strong>. Wrong versions will not load.
-                </p>
-
                 <div class="version-links" aria-label="Windows plugin ZIP releases">
                   <div class="version-row">
                     <span>Latest Release:</span>
@@ -690,11 +702,6 @@
             <div class="platform mac">
               <div class="platform-copy">
                 <h3>macOS</h3>
-                <p class="compatibility-copy">
-                  <strong>Important:</strong> Use the plugin matching your OBS version.<br>
-                  Check <strong>Help → About</strong>. Wrong versions will not load.
-                </p>
-
                 <div class="version-links" aria-label="macOS plugin releases">
                   <div class="version-row">
                     <span>Latest Release:</span>
@@ -727,12 +734,12 @@
             <div class="install-column">
               <h3>Windows</h3>
               <ol>
-                <li>Download the Windows plugin .zip</li>
+                <li>Download the Windows plugin .zip.</li>
                 <li>Unzip the downloaded file.</li>
                 <li>Copy the included <code>data</code> and <code>obs-plugins</code> folders into your OBS Studio installation folder.</li>
                 <li>Default OBS Studio directory: <code>C:\Program Files\obs-studio</code>.</li>
                 <li>Open OBS Studio and add <strong>StreamLens Device</strong> as a source.</li>
-                <li>Open StreamLens on your Phone. The app should find OBS automatically when both devices are on the same Wi-Fi network.</li>
+                <li>Open StreamLens on your iPhone. The app should find OBS automatically when both devices are on the same Wi-Fi network.</li>
               </ol>
             </div>
 
@@ -746,7 +753,7 @@
                 <li>Copy <code>streamlens-obs.plugin</code> into the <code>plugins</code> folder.</li>
                 <li>Open or restart OBS Studio.</li>
                 <li>Add <strong>StreamLens Device</strong> as a source in OBS.</li>
-                <li>Open StreamLens on your Phone. The app should find OBS automatically when both devices are on the same Wi-Fi network.</li>
+                <li>Open StreamLens on your iPhone. The app should find OBS automatically when both devices are on the same Wi-Fi network.</li>
               </ol>
             </div>
           </div>
