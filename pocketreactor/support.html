@@ -1,1 +1,463 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Support and troubleshooting for Pocket Reactor, the private offline AI art generator.">
+  <title>Pocket Reactor Support</title>
 
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #080a12;
+      --panel: rgba(255, 255, 255, 0.045);
+      --panel-strong: rgba(255, 255, 255, 0.065);
+      --text: #f5f7ff;
+      --secondary: rgba(245, 247, 255, 0.76);
+      --muted: rgba(245, 247, 255, 0.50);
+      --line: rgba(255, 255, 255, 0.09);
+      --blue: #78a7ff;
+      --purple: #a98cff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 85% 4%, rgba(116, 82, 255, 0.10), transparent 30%),
+        radial-gradient(circle at 10% 20%, rgba(48, 126, 255, 0.08), transparent 34%),
+        var(--background);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(100%, 824px);
+      margin: 0 auto;
+      padding: 56px 22px 72px;
+    }
+
+    header {
+      padding-bottom: 34px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(34px, 6vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+    }
+
+    .intro {
+      max-width: 670px;
+      margin: 0;
+      color: rgba(245, 247, 255, 0.86);
+      font-size: 18px;
+    }
+
+    .updated {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    h2 {
+      margin: 40px 0 14px;
+      font-size: 22px;
+      letter-spacing: -0.015em;
+    }
+
+    h3 {
+      margin: 0 0 7px;
+      font-size: 16px;
+    }
+
+    p, li {
+      color: var(--secondary);
+      font-size: 16px;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration: underline;
+    }
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .quick-link {
+      display: block;
+      padding: 16px 17px;
+      color: var(--text);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .quick-link:hover {
+      background: var(--panel-strong);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .quick-link span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+    }
+
+    .card p {
+      margin: 0;
+    }
+
+    .steps {
+      padding-left: 22px;
+      margin-bottom: 0;
+    }
+
+    .steps li + li {
+      margin-top: 7px;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 16px 18px;
+      background: linear-gradient(
+        135deg,
+        rgba(63, 126, 255, 0.12),
+        rgba(140, 86, 255, 0.09)
+      );
+      border: 1px solid rgba(116, 151, 255, 0.18);
+      border-radius: 18px;
+    }
+
+    .notice p {
+      margin: 0;
+    }
+
+    .contact {
+      padding: 22px;
+      background:
+        linear-gradient(135deg, rgba(57, 113, 255, 0.10), rgba(139, 79, 255, 0.08)),
+        var(--panel);
+      border: 1px solid rgba(143, 163, 255, 0.18);
+      border-radius: 22px;
+    }
+
+    .contact p {
+      margin: 0 0 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 18px;
+      color: white;
+      font-weight: 700;
+      background: linear-gradient(90deg, #286cff, #7549ff);
+      border-radius: 999px;
+    }
+
+    .button:hover {
+      text-decoration: none;
+      filter: brightness(1.06);
+    }
+
+    footer {
+      margin-top: 44px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 620px) {
+      main {
+        padding-top: 38px;
+      }
+
+      .quick-links {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>Pocket Reactor Support</h1>
+      <p class="intro">
+        Help with creating images, managing models, protecting your Library,
+        subscriptions and common troubleshooting.
+      </p>
+      <p class="updated">Last updated: 30 July 2026</p>
+
+      <nav class="quick-links" aria-label="Support topics">
+        <a class="quick-link" href="#getting-started">
+          Getting Started
+          <span>Create your first image</span>
+        </a>
+
+        <a class="quick-link" href="#models">
+          Models
+          <span>Install and manage AI models</span>
+        </a>
+
+        <a class="quick-link" href="#library">
+          Library &amp; Passcode
+          <span>Manage and protect creations</span>
+        </a>
+
+        <a class="quick-link" href="#troubleshooting">
+          Troubleshooting
+          <span>Resolve common issues</span>
+        </a>
+      </nav>
+    </header>
+
+    <section id="getting-started">
+      <h2>Getting Started</h2>
+
+      <div class="card">
+        <h3>Create an image from a prompt</h3>
+        <ol class="steps">
+          <li>Open the Generate screen.</li>
+          <li>Enter a description of the image you want to create.</li>
+          <li>Select your preferred model and quality setting.</li>
+          <li>Tap Create.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top: 12px;">
+        <h3>Transform an existing image</h3>
+        <ol class="steps">
+          <li>Tap the preview area and choose an image from Photos.</li>
+          <li>Enter a prompt describing the result you want.</li>
+          <li>Tap Transform.</li>
+        </ol>
+      </div>
+
+      <div class="notice">
+        <p>
+          The first generation after loading a model may take a little longer.
+          Later generations with the same model usually start faster.
+        </p>
+      </div>
+    </section>
+
+    <section id="offline">
+      <h2>Offline Generation</h2>
+      <p>
+        Pocket Reactor does not use cloud generation. The app downloads the AI
+        model files to your device and runs those models directly on the device.
+        Your prompts, source images and generated images are processed locally
+        and are not sent to a cloud-generation service.
+      </p>
+      <p>
+        An internet connection is required only for model downloads, App Store
+        purchases and subscription verification.
+      </p>
+    </section>
+
+    <section id="models">
+      <h2>Models</h2>
+
+      <div class="card-list">
+        <article class="card">
+          <h3>Install a model</h3>
+          <p>
+            Open Settings, find the Models section and tap the download button
+            beside the model you want to install. Keep the app open and connected
+            while installation is in progress.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>No Internet Connection</h3>
+          <p>
+            Confirm that Wi-Fi or mobile data is available, then return to the
+            app. Pocket Reactor will retry loading the model catalogue when the
+            connection becomes available.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Not Enough Storage</h3>
+          <p>
+            Free additional device storage, clear temporary cache data from
+            Pocket Reactor Settings, then retry the model installation.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="library">
+      <h2>Library and Passcode</h2>
+
+      <div class="card-list">
+        <article class="card">
+          <h3>Your Library</h3>
+          <p>
+            Generated and upscaled images are stored locally in the Pocket Reactor
+            Library. Open an image to preview, save or delete it.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Enable passcode protection</h3>
+          <p>
+            Open Settings and turn on the Passcode toggle. Follow the prompts to
+            create a PIN for Library access.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Disable passcode protection</h3>
+          <p>
+            Turn off the Passcode toggle and enter the current PIN. Believe N
+            Create Lab cannot view, recover or reset a Library PIN remotely.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="subscriptions">
+      <h2>Subscriptions and Purchases</h2>
+
+      <div class="card-list">
+        <article class="card">
+          <h3>Restore a purchase</h3>
+          <p>
+            Open the Pocket Reactor Pro panel and tap Restore Purchases. Use the
+            same Apple Account that originally completed the purchase.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Manage or cancel a subscription</h3>
+          <p>
+            Open the device Settings app, select your Apple Account, choose
+            Subscriptions, then select Pocket Reactor.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Access after cancellation</h3>
+          <p>
+            Pro access normally remains available until the end of the paid
+            subscription period. After expiry, premium features are locked while
+            existing Library images remain on the device.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>Troubleshooting</h2>
+
+      <div class="card-list">
+        <article class="card">
+          <h3>Generation stopped when leaving the app</h3>
+          <p>
+            Keep Pocket Reactor open while generating or upscaling. iOS may stop
+            intensive processing when the app moves into the background.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>A model is unavailable</h3>
+          <p>
+            Check that the model is installed in Settings. Premium models also
+            require an active Pocket Reactor Pro entitlement.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>An image was not saved to Photos</h3>
+          <p>
+            Confirm that Pocket Reactor has permission to add images to your
+            Photos library. Images stored inside the Pocket Reactor Library remain
+            separate from Photos.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Reinstalling the app</h3>
+          <p>
+            Removing Pocket Reactor also removes its locally stored Library,
+            settings, downloaded models and passcode data. Images previously
+            saved to Photos are not removed with the app.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Support</h2>
+
+      <div class="contact">
+        <p>
+          For further help, email Believe N Create Lab. Include your device model,
+          iOS version, a short description of the problem and the steps that
+          reproduce it. Please do not send private source images unless they are
+          necessary to explain the issue.
+        </p>
+
+        <a class="button" href="mailto:believencreatelab@gmail.com?subject=Pocket%20Reactor%20Support">
+          Email Support
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <nav aria-label="Legal links">
+        <a href="https://www.believeandcreatelab.co.uk/pocketreactor/privacy">Privacy Policy</a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+      </nav>
+
+      <div>Pocket Reactor by Believe N Create Lab</div>
+    </footer>
+  </main>
+</body>
+</html>
